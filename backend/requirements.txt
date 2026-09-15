@@ -1,0 +1,10 @@
+FastAPI
+Uvicorn
+SQLAlchemy
+PyMySQL
+Pydantic
+pydantic-settings
+pandas
+openpyxl
+python-multipart
+email-validator
