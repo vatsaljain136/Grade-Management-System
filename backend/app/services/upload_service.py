@@ -51,7 +51,7 @@ def process_grade_upload(
             ],
         )
 
-    errors: list[UploadError] = []
+    errors: list[UploadError] = []              #list of upload err for bulk upload .xlxs files
     seen_pairs: set[tuple[str, int]] = set()    #used to detect duplicate student/assessment combinations within the uploaded Excel file.
 
     # Store valid rows so we can process them only after
@@ -59,7 +59,7 @@ def process_grade_upload(
     valid_rows: list[dict] = []
 
     for index, row in dataframe.iterrows():
-        row_number = index + 2
+        row_number = index + 2                #why 2? simple reason is that the first row of the Excel file is usually reserved for column headers, and the data starts from the second row. Therefore, when iterating through the rows of the DataFrame, we add 2 to the index to get the actual row number in the Excel file. This way, if there are any errors or issues with a specific row, we can accurately report the row number to the user for easier debugging and correction.
 
         row_data = row.to_dict()
 
@@ -76,7 +76,7 @@ def process_grade_upload(
 
         student_code = str(
             row_data["student_code"]
-        ).strip()
+        ).strip()                            #strip to remove whitespaces (something i do just as a precaution)
 
         if not student_code:
             errors.append(
@@ -110,7 +110,7 @@ def process_grade_upload(
         valid_rows.append(row_data)
 
     # IMPORTANT:
-    # Do not modify the database if even one row is invalid.
+    # Do not modify the database if even one row is invalid. this is a bussiness constraint that i have to follow
     if errors:
         return UploadResponse(
             success=False,

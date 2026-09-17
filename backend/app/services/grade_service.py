@@ -10,7 +10,7 @@ def create_grade(
     db: Session,
     grade_data: GradeCreate,
 ) -> Grade:
-    assessment = validate_grade(
+    assessment = validate_grade(            #checking wether the grades are valid or not(like grade is +ve and less than max marks)
         db=db,
         student_id=grade_data.student_id,
         assessment_id=grade_data.assessment_id,
