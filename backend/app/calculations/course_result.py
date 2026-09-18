@@ -12,6 +12,8 @@ def calculate_course_result(
         maximum_marks
         weight
     """
+    if any(maximum_marks <= 0 for _, maximum_marks, _ in grades):  #added after failing test(zero division err in case of maximum_marks=0)
+        return None
 
     grades = list(grades)
 

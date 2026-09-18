@@ -20,6 +20,9 @@ def validate_grade(
 
     if assessment is None:
         raise ValueError("Assessment not found.")
+    
+    if marks is None:               #because marks is optional in the GradeUpdate schema, we need to handle the case where it is None. If marks is None, we can skip the validation checks and return the assessment.
+         return assessment          #tldr test failed for more info read above comment
 
     # 2. Check that the student is enrolled
     enrollment = db.scalar(
