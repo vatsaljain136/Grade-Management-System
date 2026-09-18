@@ -1,5 +1,6 @@
 import streamlit as st
 
+from frontend.views.academic_setup import show_academic_setup
 from frontend.views.grades_uploads import show_grades_uploads
 from frontend.views.performance import show_performance
 from frontend.views.students import show_students
@@ -16,10 +17,12 @@ st.title("🎓 Grade Management System")
 
 st.sidebar.title("Navigation")
 
+
 page = st.sidebar.radio(
     "Go to",
     [
         "Students",
+        "Academic Setup",
         "Grades & Uploads",
         "Student Performance",
     ],
@@ -28,6 +31,10 @@ page = st.sidebar.radio(
 
 if page == "Students":
     show_students()
+
+elif page == "Academic Setup":
+    show_academic_setup()
+
 
 elif page == "Grades & Uploads":
     show_grades_uploads()
