@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+pydantic
+pydantic-settings
+email-validator
+python-multipart
+pandas
+openpyxl
+streamlit
+requests
+pytest
