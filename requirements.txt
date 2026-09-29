@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 sqlalchemy
-pymysql
 pydantic
 pydantic-settings
 email-validator
@@ -10,4 +9,3 @@ pandas
 openpyxl
 streamlit
 requests
-pytest
