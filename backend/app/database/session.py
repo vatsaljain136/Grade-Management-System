@@ -1,5 +1,4 @@
 
-
 # API request
 #      ↓
 # SessionLocal()
@@ -26,7 +25,9 @@ SessionLocal = sessionmaker(
 
 
 def get_db() -> Generator[Session, None, None]:
-    db = SessionLocal()
+    db = SessionLocal()                                 # produces → Session
+                                                         # receives → nothing
+                                                         # returns  → nothing
 
     try:
         yield db
